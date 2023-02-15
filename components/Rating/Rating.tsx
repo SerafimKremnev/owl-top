@@ -24,8 +24,8 @@ const Rating = ({isEditable=false, rating, setRating, ...props}: RatingProps): J
                 onClick={() => onClick(i+1)}
             >
                 <Star
-                    tabindex={isEditable? 0 : -1}
-                    onKeyDown={(e) => handleSpace(e, i+1)}
+                    tabIndex={isEditable? 0 : -1}
+                    onKeyDown={(e: any) => handleSpace(e, i+1)}
                 />
             </span>
         ));
@@ -45,7 +45,7 @@ const Rating = ({isEditable=false, rating, setRating, ...props}: RatingProps): J
         setRating(i);
     };
 
-    const handleSpace = (e, i: number) => {
+    const handleSpace = (e: any, i: number) => {
         if(e.code != 'Space' || !setRating) {
             return
         }
