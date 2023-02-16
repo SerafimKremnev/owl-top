@@ -5,6 +5,8 @@ import {MenuItem} from "../../interfaces/menu.interface";
 import {TopPageModel} from "../../interfaces/page.interface";
 import {ParsedUrlQuery} from "querystring";
 import {ProductModel} from "../../interfaces/product.interface";
+import {useRouter} from "next/router";
+import {useEffect} from "react";
 
 
 const firstCategory = 0;
@@ -12,7 +14,7 @@ const firstCategory = 0;
 function Course({ menu, page, products }: CourseProps) {
     return (
         <>
-            {!products ?? products.length}
+            {products.length}
         </>
     );
 }
@@ -24,7 +26,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     });
 
     return {
-        paths:  menu.flatMap(m => m.pages?.map(p=> '/courses/' + p.alias)),
+        paths:  menu.flatMap(m => m.pages.map(p=> '/courses/' + p.alias)),
         fallback: true
     };
 };

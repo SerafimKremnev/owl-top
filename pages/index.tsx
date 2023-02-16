@@ -3,11 +3,12 @@ import Button from "../components/Button/Button";
 import P from "../components/P/P";
 import Rating from "../components/Rating/Rating";
 import Tag from "../components/Tag/Tag";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {withLayout} from "../layout/Layout";
 import {GetStaticProps} from "next";
 import axios from "axios";
 import {MenuItem} from "../interfaces/menu.interface";
+import {useRouter} from "next/router";
 
 function Home({menu, firstCategory}: HomeProps) {
     const [rating, setRating] = useState<number>(4);
