@@ -1,22 +1,13 @@
 import React, {useContext} from 'react';
 import {AppContext} from "../../context/app.context";
 import {FirstLevelMenuItem, PageItem} from "../../interfaces/menu.interface";
-import {TopLevelCategory} from "../../interfaces/page.interface";
-import CourseIcon from './icons/courses.svg';
-import ServiceIcon from './icons/services.svg';
-import BookIcon from './icons/books.svg';
-import ProductIcon from './icons/products.svg';
 import styles from './Menu.module.css';
 import cn from "classnames";
 import Link from "next/link";
 import {useRouter} from "next/router";
+import {firstLevelMenu} from "../../helpers/helpers";
 
-const firstLevelMenu: FirstLevelMenuItem[] = [
-    { route: 'courses', name: 'Курсы', id: TopLevelCategory.Courses, icon: <CourseIcon/>},
-    { route: 'services', name: 'Сервисы', id: TopLevelCategory.Services, icon: <ServiceIcon/>},
-    { route: 'books', name: 'Книги', id: TopLevelCategory.Books, icon: <BookIcon/>},
-    { route: 'products', name: 'Товары', id: TopLevelCategory.Products, icon: <ProductIcon/>}
-];
+
 
 const Menu = (): JSX.Element => {
     const { menu, setMenu, firstCategory} = useContext(AppContext);
@@ -25,9 +16,9 @@ const Menu = (): JSX.Element => {
         setMenu && setMenu(menu.map(m => {
             if (m._id.secondCategory == secondCategory)
                 m.isOpened = !m.isOpened;
-            return m
-        }))
-    }
+            return m;
+        }));
+    };
     const router = useRouter();
 
     const buildFirstLevel = (): JSX.Element => {
@@ -55,7 +46,7 @@ const Menu = (): JSX.Element => {
             <div className={styles.secondBlock}>
                 {menu.map(m => {
                     if(m.pages.map(p => p.alias).includes(router.asPath.split('/')[2])) {
-                        m.isOpened = true
+                        m.isOpened = true;
                     }
                     return (
                     <div key={m._id.secondCategory}>
@@ -91,7 +82,7 @@ const Menu = (): JSX.Element => {
         <div className={styles.menu}>
             {buildFirstLevel()}
         </div>
-    )
+    );
 };
 
 export default Menu;

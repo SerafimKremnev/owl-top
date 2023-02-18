@@ -1,4 +1,4 @@
-import React, {KeyboardEventHandler, useEffect, useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import {RatingProps} from "./Rating.props";
 import styles from './Rating.module.css';
 import cn from "classnames";
@@ -47,15 +47,15 @@ const Rating = ({isEditable=false, rating, setRating, ...props}: RatingProps): J
 
     const handleSpace = (e: any, i: number) => {
         if(e.code != 'Space' || !setRating) {
-            return
+            return;
         }
-        setRating(i)
-    }
+        setRating(i);
+    };
     return (
         <div {...props}>
             {ratingArray.map((e, i) => <span key={i}>{e}</span>)}
         </div>
-    )
+    );
 };
 
 export default Rating;

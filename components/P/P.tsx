@@ -1,10 +1,10 @@
 import React from 'react';
 import {PProps} from "./P.props";
-import styles from './P.module.css'
+import styles from './P.module.css';
 import cn from "classnames";
 
 const P = ({size='m', children, className, ...props}: PProps): JSX.Element => {
-    return <p
+    return <p {...props}
         className={cn(styles.p, className, {
             [styles.s]: size === 's',
             [styles.m]: size === 'm',
@@ -12,7 +12,7 @@ const P = ({size='m', children, className, ...props}: PProps): JSX.Element => {
         })}
     >
         {children}
-    </p>
+    </p>;
 };
 
 export default P;

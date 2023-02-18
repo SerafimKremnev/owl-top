@@ -1,5 +1,5 @@
 import {ButtonProps} from "./Button.props";
-import styles from './Button.module.css'
+import styles from './Button.module.css';
 import cn from "classnames";
 import Arrow from "./Arrow.svg";
 
@@ -17,7 +17,7 @@ const Button = ({appearance, children, arrow='none', className, ...props}: Butto
                 [styles.down]: arrow === 'bottom',
             })}><Arrow className={styles.arrowSvg}/></span>}
         </button>
-    )
+    );
 };
 
 export default Button;

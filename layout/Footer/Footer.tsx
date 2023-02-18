@@ -1,8 +1,8 @@
 import React from 'react';
 import {FooterProps} from "./Footer.props";
-import styles from './Footer.module.css'
+import styles from './Footer.module.css';
 import cn from "classnames";
-import { format } from 'date-fns'
+import { format } from 'date-fns';
 
 const Footer = ({...props}: FooterProps): JSX.Element => {
     return (
@@ -11,7 +11,7 @@ const Footer = ({...props}: FooterProps): JSX.Element => {
             <a href={'#'}>Пользовательское соглашение</a>
             <a href={'#'}>Политика конфидециальности</a>
         </footer>
-    )
+    );
 };
 
 export default Footer;
